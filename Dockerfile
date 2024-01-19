@@ -8,7 +8,7 @@ RUN apt install ssh wget unzip -y > /dev/null 2>&1
 RUN wget -O ngrok.zip https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.zip > /dev/null 2>&1
 RUN unzip ngrok.zip
 RUN echo "./ngrok config add-authtoken ${NGROK_TOKEN} &&" >>/King.sh
-RUN echo "./ngrok tcp 22 &>/dev/null &" >>/King.sh
+RUN echo "./ngrok tcp 22 --region ap &>/dev/null &" >>/King.sh
 RUN mkdir /run/sshd
 RUN echo '/usr/sbin/sshd -D' >>/King.sh
 RUN echo 'PermitRootLogin yes' >>  /etc/ssh/sshd_config 
